@@ -1,0 +1,147 @@
+{
+  "name": "cmc-component-creater",
+  "displayName": "cmc-component-creater",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "publisher": "ynqq",
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "url": "https://github.com/ynqq/vscode-creater"
+  },
+  "icon": "images/icon.png",
+  "activationEvents": [
+    "onLanguage:vue"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cmcComponentsCreater.emptyModalFile",
+        "title": "创建空Modal"
+      },
+      {
+        "command": "cmcComponentsCreater.infoModalFile",
+        "title": "创建需要请求接口的Modal"
+      },
+      {
+        "command": "cmcComponentsCreater.formModalFile",
+        "title": "创建带有表单的Modal"
+      },
+      {
+        "command": "cmcComponentsCreater.infoFormModalFile",
+        "title": "创建带有表单和请求接口的Modal"
+      },
+      {
+        "command": "cmcComponentsCreater.emptyDrawerFile",
+        "title": "创建空Drawer"
+      },
+      {
+        "command": "cmcComponentsCreater.infoDrawerFile",
+        "title": "创建需要请求接口的Drawer"
+      },
+      {
+        "command": "cmcComponentsCreater.formDrawerFile",
+        "title": "创建带有表单的Drawer"
+      },
+      {
+        "command": "cmcComponentsCreater.infoFormDrawerFile",
+        "title": "创建带有表单和请求接口的Drawer"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "submenu": "createModal",
+          "when": "explorerResourceIsFolder",
+          "group": "file0"
+        },
+        {
+          "submenu": "createDrawer",
+          "when": "explorerResourceIsFolder",
+          "group": "file1"
+        }
+      ],
+      "createModal": [
+        {
+          "command": "cmcComponentsCreater.emptyModalFile",
+          "group": "file00"
+        },
+        {
+          "command": "cmcComponentsCreater.infoModalFile",
+          "group": "file01"
+        },
+        {
+          "command": "cmcComponentsCreater.formModalFile",
+          "group": "file02"
+        },
+        {
+          "command": "cmcComponentsCreater.infoFormModalFile",
+          "group": "file03"
+        }
+      ],
+      "createDrawer": [
+        {
+          "command": "cmcComponentsCreater.emptyDrawerFile",
+          "group": "file10"
+        },
+        {
+          "command": "cmcComponentsCreater.infoDrawerFile",
+          "group": "file11"
+        },
+        {
+          "command": "cmcComponentsCreater.formDrawerFile",
+          "group": "file12"
+        },
+        {
+          "command": "cmcComponentsCreater.infoFormDrawerFile",
+          "group": "file13"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "createModal",
+        "label": "创建Modal"
+      },
+      {
+        "id": "createDrawer",
+        "label": "创建Drawer"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "build": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.81.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.41.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.3",
+    "ts-loader": "^9.4.3",
+    "webpack": "^5.85.0",
+    "webpack-cli": "^5.1.1",
+    "@vscode/test-electron": "^2.3.2"
+  }
+}
+
