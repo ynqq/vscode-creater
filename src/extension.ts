@@ -3,8 +3,6 @@ import { generateModal, getFolderName } from "./generator";
 import { drawerCommond, modalCommond } from "./enums";
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log("active---");
-
   modalCommond.forEach((commond) => {
     context.subscriptions.push(
       vscode.commands.registerCommand(commond, async (uri: vscode.Uri) => {
