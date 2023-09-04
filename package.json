@@ -2,7 +2,7 @@
   "name": "cmc-component-creater",
   "displayName": "cmc-component-creater",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -51,9 +51,45 @@
       {
         "command": "cmcComponentsCreater.infoFormDrawerFile",
         "title": "创建带有表单和请求接口的Drawer"
+      },
+      {
+        "command": "copy.fileNameAndSuffix",
+        "title": "复制文件名称-带后缀"
+      },
+      {
+        "command": "copy.fileName",
+        "title": "复制文件名称"
+      },
+      {
+        "command": "copy.folderName",
+        "title": "复制文件夹名称"
       }
     ],
     "menus": {
+      "editor/title/context": [
+        {
+          "command": "copy.fileNameAndSuffix",
+          "when": "(resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "group": "copy0"
+        },
+        {
+          "command": "copy.fileName",
+          "when": "(resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "group": "copy0"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "copy.fileName",
+          "when": "editorFocus && (resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "group": "copy0"
+        },
+        {
+          "command": "copy.fileNameAndSuffix",
+          "when": "editorFocus && (resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "group": "copy0"
+        }
+      ],
       "explorer/context": [
         {
           "submenu": "createModal",
@@ -64,6 +100,21 @@
           "submenu": "createDrawer",
           "when": "explorerResourceIsFolder",
           "group": "file1"
+        },
+        {
+          "command": "copy.folderName",
+          "when": "explorerResourceIsFolder",
+          "group": "copy0"
+        },
+        {
+          "command": "copy.fileNameAndSuffix",
+          "when": "(resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "group": "copy0"
+        },
+        {
+          "command": "copy.fileName",
+          "when": "(resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "group": "copy0"
         }
       ],
       "createModal": [
@@ -125,7 +176,7 @@
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
     "build": "vsce package",
-    "publish": "vsce publish"
+    "publish": "vsce package && vsce publish"
   },
   "devDependencies": {
     "@types/vscode": "^1.81.0",
