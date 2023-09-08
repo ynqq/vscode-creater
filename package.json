@@ -2,7 +2,7 @@
   "name": "cmc-component-creater",
   "displayName": "cmc-component-creater",
   "description": "",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -69,24 +69,24 @@
       "editor/title/context": [
         {
           "command": "copy.fileNameAndSuffix",
-          "when": "(resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "when": "resourceLangId=~ /txt|js|ts|tsx|jpg|jpeg|png|gif|svg|vue|json/i || (resourceFilename =~ /\\.png$|\\.jpg$|\\.jpeg$|\\.gif$|\\.svg$/i)",
           "group": "copy0"
         },
         {
           "command": "copy.fileName",
-          "when": "(resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "when": "resourceLangId=~ /txt|js|ts|tsx|jpg|jpeg|png|gif|svg|vue|json/i || (resourceFilename =~ /\\.png$|\\.jpg$|\\.jpeg$|\\.gif$|\\.svg$/i)",
           "group": "copy0"
         }
       ],
       "editor/context": [
         {
           "command": "copy.fileName",
-          "when": "editorFocus && (resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "when": "editorFocus && resourceLangId=~ /txt|js|ts|tsx|jpg|jpeg|png|gif|svg|vue|json/i || (resourceFilename =~ /\\.png$|\\.jpg$|\\.jpeg$|\\.gif$|\\.svg$/i)",
           "group": "copy0"
         },
         {
           "command": "copy.fileNameAndSuffix",
-          "when": "editorFocus && (resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "when": "editorFocus && resourceLangId=~ /txt|js|ts|tsx|jpg|jpeg|png|gif|svg|vue|json/i || (resourceFilename =~ /\\.png$|\\.jpg$|\\.jpeg$|\\.gif$|\\.svg$/i)",
           "group": "copy0"
         }
       ],
@@ -108,12 +108,12 @@
         },
         {
           "command": "copy.fileNameAndSuffix",
-          "when": "(resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "when": "resourceLangId=~ /txt|js|ts|tsx|jpg|jpeg|png|gif|svg|vue|json/i || (resourceFilename =~ /\\.png$|\\.jpg$|\\.jpeg$|\\.gif$|\\.svg$/i)",
           "group": "copy0"
         },
         {
           "command": "copy.fileName",
-          "when": "(resourceLangId == javascript || resourceLangId == typescript || resourceLangId == vue)",
+          "when": "resourceLangId=~ /txt|js|ts|tsx|jpg|jpeg|png|gif|svg|vue|json/i || (resourceFilename =~ /\\.png$|\\.jpg$|\\.jpeg$|\\.gif$|\\.svg$/i)",
           "group": "copy0"
         }
       ],
