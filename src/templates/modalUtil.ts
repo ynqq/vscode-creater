@@ -8,7 +8,7 @@ const createTitle = () => {
   return <div>{}</div>;
 };
 
-export const showApplyModal = generatorModal<null, ${bigFolderName}Props>(ModalCom, {
+export const show${bigFolderName}Modal = generatorModal<null, ${bigFolderName}Props>(ModalCom, {
   title: createTitle,
   width: '640px',
   showBBtn: true,
