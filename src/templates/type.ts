@@ -1,4 +1,8 @@
 export default (bigFolderName: string) => {
-  return `export interface ${bigFolderName}Props {}
+  return `import { ActionType, ActionEnum } from 'neo-cmc-components';
+
+export interface ${bigFolderName}Props {
+  action: ActionType | ActionEnum;
+}
 `;
 };
