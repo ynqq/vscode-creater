@@ -8,9 +8,9 @@ const createTitle = () => {
   return <div>{}</div>;
 };
 
-export const show${bigFolderName}Modal = (props: PickRequired<${bigFolderName}Props, 'action'>) => {
+export const showAdd${bigFolderName}Modal = (props: OmitRequired<${bigFolderName}Props, 'action'>) => {
   props.action = ActionType.CREATE;
-  return generatorModal<null, ${bigFolderName}Props>(ModalCom, {
+  return generatorModal<null, OmitRequired<${bigFolderName}Props>(ModalCom, {
     title: createTitle,
     width: '640px',
     showBBtn: true,

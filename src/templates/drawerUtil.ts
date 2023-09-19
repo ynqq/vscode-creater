@@ -8,9 +8,9 @@ const createTitle = () => {
   return <div>{}</div>;
 };
 
-export const show${bigFolderName}Drawer = (props: PickRequired<${bigFolderName}Props, 'action'>) => {
+export const showAdd${bigFolderName}Drawer = (props: OmitRequired<${bigFolderName}Props, 'action'>) => {
   props.action = ActionType.CREATE;
-  return generatorDrawer<null, ${bigFolderName}Props>(ModalCom, {
+  return generatorDrawer<null, OmitRequired<${bigFolderName}Props>(ModalCom, {
     title: createTitle,
     width: '640px',
     showBBtn: true,
