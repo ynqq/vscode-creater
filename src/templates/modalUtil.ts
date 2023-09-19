@@ -10,7 +10,7 @@ const createTitle = () => {
 
 export const showAdd${bigFolderName}Modal = (props: OmitRequired<${bigFolderName}Props, 'action'>) => {
   props.action = ActionType.CREATE;
-  return generatorModal<null, OmitRequired<${bigFolderName}Props>(ModalCom, {
+  return generatorModal<null, OmitRequired<${bigFolderName}Props, 'action'>>(ModalCom, {
     title: createTitle,
     width: '640px',
     showBBtn: true,
