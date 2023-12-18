@@ -42,6 +42,8 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
   vscode.commands.registerCommand("copy.fileName", (uri: vscode.Uri) => {
+    console.log('ccc');
+    
     const allName = uri.fsPath.split("\\").pop();
     if (allName) {
       const [name] = allName.split(".");
