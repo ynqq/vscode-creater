@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import { generateModal, getFolderName } from "./generator";
 import { drawerCommond, modalCommond } from "./enums";
+import { getFileName } from "./util";
 
 export function activate(context: vscode.ExtensionContext) {
   modalCommond.forEach((commond) => {
@@ -34,7 +35,7 @@ export function activate(context: vscode.ExtensionContext) {
   vscode.commands.registerCommand(
     "copy.fileNameAndSuffix",
     (uri: vscode.Uri) => {
-      const allName = uri.fsPath.split("\\").pop();
+      const allName = getFileName(uri.fsPath);
       if (allName) {
         vscode.env.clipboard.writeText(allName);
         vscode.window.showInformationMessage(`${allName}复制成功`);
@@ -42,9 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
   vscode.commands.registerCommand("copy.fileName", (uri: vscode.Uri) => {
-    console.log('ccc');
-    
-    const allName = uri.fsPath.split("\\").pop();
+    const allName = getFileName(uri.fsPath);
     if (allName) {
       const [name] = allName.split(".");
       vscode.env.clipboard.writeText(name);
@@ -52,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   });
   vscode.commands.registerCommand("copy.folderName", (uri: vscode.Uri) => {
-    const allName = uri.fsPath.split("\\").pop();
+    const allName = getFileName(uri.fsPath);
     if (allName) {
       vscode.env.clipboard.writeText(allName);
       vscode.window.showInformationMessage(`${allName}复制成功`);
